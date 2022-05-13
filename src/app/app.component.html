@@ -1,26 +1,57 @@
 <ion-app>
   <ion-split-pane contentId="main-content">
-    <ion-menu contentId="main-content" type="overlay">
+    <ion-menu id='menu' contentId="main-content" type="overlay">
       <ion-content>
         <ion-list id="inbox-list">
-          <ion-list-header>Inbox</ion-list-header>
-          <ion-note>hi@ionicframework.com</ion-note>
+          <ion-list-header>Menu</ion-list-header>
+          <ion-note>Bienvenue {{ (isLogged)? 'Jean Michel' : 'Anonyme' }}</ion-note>
+          <ion-menu-toggle auto-hide="true">
+            <ion-item [routerLink]="'presentation'">
+              <ion-icon slot="start" name="star"></ion-icon>
+              Présentation
+            </ion-item>
+            <ion-item [routerLink]="'ui'">
+              <ion-icon slot="start" name="flower-outline"></ion-icon>
+              UI
+            </ion-item>
 
-          <ion-menu-toggle auto-hide="false" *ngFor="let p of appPages; let i = index">
-            <ion-item routerDirection="root" [routerLink]="[p.url]" lines="none" detail="false" routerLinkActive="selected">
-              <ion-icon slot="start" [ios]="p.icon + '-outline'" [md]="p.icon + '-sharp'"></ion-icon>
-              <ion-label>{{ p.title }}</ion-label>
+            <ion-item [routerLink]="'personnages'">
+              <ion-icon slot="start" name="people-outline"></ion-icon>
+              Personnages
+            </ion-item>
+
+            <ion-item [routerLink]="'files'">
+              <ion-icon slot="start" name="document-outline"></ion-icon>
+              Fichiers
+            </ion-item>
+            <ion-item [routerLink]="'storage'">
+              <ion-icon slot="start" name="save-outline"></ion-icon>
+              Storage
+            </ion-item>
+            <ion-item [routerLink]="'camera'">
+              <ion-icon slot="start" name="camera-outline"></ion-icon>
+              Camera
+            </ion-item>
+            <ion-item [routerLink]="'login'">
+              <ion-icon slot="start" name="person-outline"></ion-icon>
+              Login
+            </ion-item>
+            <ion-item [routerLink]="'tracker'">
+              <ion-icon slot="start" name="footsteps-outline"></ion-icon>
+              Tracker
+            </ion-item>
+            <ion-item [routerLink]="'geoloc'">
+              <ion-icon slot="start" name="navigate-outline"></ion-icon>
+              Geolocation
+            </ion-item>
+            <ion-item [routerLink]="'push-notif'">
+              <ion-icon slot="start" name="musical-note-outline"></ion-icon>
+              Push Notifications
+            </ion-item>
+            <ion-item>
+              <ion-button expand="block" color="danger" fill="clear" (click)="logout()">Logout</ion-button>
             </ion-item>
           </ion-menu-toggle>
-        </ion-list>
-
-        <ion-list id="labels-list">
-          <ion-list-header>Labels</ion-list-header>
-
-          <ion-item *ngFor="let label of labels" lines="none">
-            <ion-icon slot="start" ios="bookmark-outline" md="bookmark-sharp"></ion-icon>
-            <ion-label>{{ label }}</ion-label>
-          </ion-item>
         </ion-list>
       </ion-content>
     </ion-menu>

@@ -1,0 +1,17 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Tracker</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-card>
+    <ion-card-header>
+      <ion-card-title>{{state}}</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      <ion-text color="danger">{{countdown}}</ion-text>
+      <ion-button (click)="reset()" color="medium">Reset</ion-button>
+    </ion-card-content>
+  </ion-card>
+</ion-content>
